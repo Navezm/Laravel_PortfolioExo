@@ -22,4 +22,5 @@
         </div>
       </div>
     </div>
-</div><!-- End About Section -->
+</div>
+<!-- End About Section -->

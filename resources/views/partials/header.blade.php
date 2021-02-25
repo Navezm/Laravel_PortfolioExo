@@ -4,7 +4,7 @@
         <div class="container">
 
         <div class="logo">
-            <a href="#hero"><img src="{{asset('img//logo.png')}}" alt="logo"></a>
+            <a href="#hero" class="smoothScroll"><img src="{{asset('img//logo.png')}}" alt="logo"></a>
         </div>
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
