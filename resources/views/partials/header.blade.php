@@ -4,7 +4,7 @@
         <div class="container">
 
         <div class="logo">
-            <a href="index.html"><img src="assets/img//logo.png" alt="logo"></a>
+            <a href="index.html"><img src="{{asset('img//logo.png')}}" alt="logo"></a>
         </div>
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
@@ -13,7 +13,6 @@
             <li><a href="index.html" class="smoothScroll">Home</a></li>
             <li><a href="#about" class="smoothScroll">About</a></li>
             <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
-            <li><a href="#journal" class="smoothScroll">Blog</a></li>
             <li><a href="#contact" class="smoothScroll">Contact</a></li>
         </ul>
 

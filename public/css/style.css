@@ -1295,3 +1295,10 @@ blockquote {
     margin-right: 0;
   }
 }
+
+#contact_box{
+  border: solid 1px #B79F7D;
+  border-radius: 10px;
+  padding: 2%;
+  box-shadow: 3px 10px 15px #292929;
+}
