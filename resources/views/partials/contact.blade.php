@@ -61,7 +61,7 @@
                   <input type="submit" class="btn btn-defeault btn-send" value="Send message">
                 </div>
 
-              </div>
+            </div>
             </form>
           </div>
         </div>
