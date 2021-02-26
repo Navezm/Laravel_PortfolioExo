@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Hero;
+use App\Models\HeroLink;
+use App\Models\Nav;
+use App\Models\NavLink;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
@@ -12,19 +16,14 @@ class HeroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function bo()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $about = About::all();
+        $navLink = NavLink::all();
+        $logo = Nav::all();
+        $hero = Hero::all();
+        $heroLink = HeroLink::all();
+        return view('pages.bo.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
     }
 
     /**

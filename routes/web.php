@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BackOfficeController;
+use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Main;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Main::class,'index']);
+
+// BackOffice
+Route::get('/bo', [BackOfficeController::class,'index']);
+
+Route::get('/bo/home', [HeroController::class,'bo']);
