@@ -16,6 +16,7 @@ use App\Models\Portfolio;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Models\User;
+use App\Models\Nav;
 use Illuminate\Http\Request;
 
 class Main extends Controller
@@ -29,6 +30,7 @@ class Main extends Controller
     {
         $about = About::all();
         $footer = Footer::all();
+        $paragraph1 = explode('/', $footer[0]->p2);
         $footerLink = FooterLink::all();
         $form = Form::all();
         $genre = Genre::all();
@@ -41,6 +43,7 @@ class Main extends Controller
         $project = Project::all();
         $skill = Skill::all();
         $user = User::all();
-        return view('welcome', compact('about', 'footer', 'footerLink', 'form', 'genre', 'hero', 'heroLink', 'info', 'loading', 'navLink', 'portfolio', 'project', 'skill', 'user'));
+        $logo = Nav::all();
+        return view('welcome', compact('about', 'footer', 'footerLink', 'form', 'genre', 'hero', 'heroLink', 'info', 'loading', 'navLink', 'portfolio', 'project', 'skill', 'user', 'paragraph1', 'logo'));
     }
 }

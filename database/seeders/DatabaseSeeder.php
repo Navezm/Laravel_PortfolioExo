@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             InfoSeeder::class,
             LoadingSeeder::class,
             NavLinkSeeder::class,
+            NavSeeder::class,
             PortfolioSeeder::class,
             ProjectSeeder::class,
             SkillSeeder::class

@@ -2,16 +2,13 @@
 <div id="hero" class="home">
     <div class="container">
         <div class="hero-content">
-            <h1>I'm <span class="typed"></span></h1>
-            <p class="typed-items" data-typed-person="Alex Smith">Designer, Developer, Freelancer, Photographer</p>
+            <h1>{{$hero[0]->title}} <span class="typed"></span></h1>
+            <p class="typed-items" data-typed-person="{{$hero[0]->dataType}}">{{$hero[0]->job}}</p>
 
             <ul class="list-unstyled list-social">
-                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-                <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
-                <li><a href="#"><i class="ion-social-dribbble"></i></a></li>
+                @foreach ($heroLink as $item)
+                    <li><a href="#"><i class="{{$item->link}}"></i></a></li>
+                @endforeach
             </ul>
         </div>
     </div>

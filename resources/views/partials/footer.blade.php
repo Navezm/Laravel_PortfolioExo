@@ -3,21 +3,21 @@
     <div class="container">
         <div class="socials-media text-center">
 
-        <ul class="list-unstyled">
-            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-            <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-            <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
-            <li><a href="#"><i class="ion-social-dribbble"></i></a></li>
-        </ul>
+            <ul class="list-unstyled">
+                <li><a href="#"><i class="{{$footerLink[0]->icon}}"></i></a></li>
+                <li><a href="#"><i class="{{$footerLink[1]->icon}}"></i></a></li>
+                <li><a href="#"><i class="{{$footerLink[2]->icon}}"></i></a></li>
+                <li><a href="#"><i class="{{$footerLink[3]->icon}}"></i></a></li>
+                <li><a href="#"><i class="{{$footerLink[4]->icon}}"></i></a></li>
+                <li><a href="#"><i class="{{$footerLink[5]->icon}}"></i></a></li>
+            </ul>
 
         </div>
 
-        <p>&copy; Copyrights Folio. All rights reserved.</p>
+        <p>{{$footer[0]->p1}}</p>
 
         <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            {{$paragraph1[0]}}<a href="{{$footer[0]->link}}">{{$paragraph1[1]}}</a>
         </div>
 
     </div>
