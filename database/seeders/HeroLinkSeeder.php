@@ -14,7 +14,7 @@ class HeroLinkSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('heroes')->insert([
+        DB::table('hero_links')->insert([
             [
                 'link' => 'ion-social-facebook'
             ],

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AboutSeeder::class,
             FooterLinkSeeder::class,
-            FooterLink::class,
+            FooterSeeder::class,
             FormSeeder::class,
             GenreSeeder::class,
             HeroLinkSeeder::class,

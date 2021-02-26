@@ -14,7 +14,7 @@ class NavLinkSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('navlinks')->insert([
+        DB::table('nav_links')->insert([
             [
                 'link' => 'Home'
             ],
