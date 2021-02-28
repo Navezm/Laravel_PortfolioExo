@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackOfficeController;
+use App\Htpp\Controllers\ContactController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Main;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,6 @@ Route::post('/createSkill', [AboutController::class,'create']);
 Route::get('/deleteSkill/{id}', [AboutController::class,'destroy']);
 Route::get('/editSkill/{id}', [AboutController::class,'edit']);
 Route::post('/updateSkill/{id}', [AboutController::class,'updateSkill']);
+
+// BO - Contact
+Route::get('/bo/contact', [ContactController::class,'index']);
