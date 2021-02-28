@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackOfficeController;
-use App\Htpp\Controllers\ContactController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Contact;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Main;
+use App\Http\Controllers\NavFooter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +43,15 @@ Route::post('/updateSkill/{id}', [AboutController::class,'updateSkill']);
 
 // BO - Contact
 Route::get('/bo/contact', [ContactController::class,'index']);
+
+// BO - NavFooter
+Route::get('bo/navfooter', [NavFooter::class,'index']);
+Route::post('/updateFooter', [NavFooter::class,'updateFooter']);
+Route::post('/createFooterLink', [NavFooter::class,'store']);
+Route::get('/deleteFooterLink/{id}', [NavFooter::class,'destroy']);
+Route::get('/editFooterLink/{id}', [NavFooter::class,'edit']);
+Route::post('/updateFooterLink/{id}', [NavFooter::class,'updateFooterLink']);
+Route::get('/deleteNavLink/{id}', [NavFooter::class,'destroyNav']);
+Route::get('/editNavLink/{id}', [NavFooter::class,'editNav']);
+Route::post('/updateNavLink/{id}', [NavFooter::class,'updateNav']);
+Route::post('/createNavLink', [NavFooter::class,'storeNav']);
