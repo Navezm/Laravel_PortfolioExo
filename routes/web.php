@@ -29,3 +29,11 @@ Route::get('/editHeroLink/{id}', [HeroController::class,'editLink']);
 Route::post('/updateHero', [HeroController::class,'updateHero']);
 Route::post('/updateHeroLink/{id}', [HeroController::class,'updateLink']);
 Route::get('/deleteHeroLink/{id}', [HeroController::class,'destroyLink']);
+
+// BO - About
+Route::get('/bo/about', [AboutController::class,'index']);
+Route::post('/updateAbout', [AboutController::class,'updateAbout']);
+Route::post('/createSkill', [AboutController::class,'create']);
+Route::get('/deleteSkill/{id}', [AboutController::class,'destroy']);
+Route::get('/editSkill/{id}', [AboutController::class,'edit']);
+Route::post('/updateSkill/{id}', [AboutController::class,'updateSkill']);

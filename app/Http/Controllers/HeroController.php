@@ -18,7 +18,7 @@ class HeroController extends Controller
         $logo = Nav::all();
         $hero = Hero::first();
         $heroLink = HeroLink::all();
-        return view('pages.bo.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
+        return view('pages.bo..home.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class HeroController extends Controller
         $navLink = NavLink::all();
         $logo = Nav::all();
         $show = HeroLink::find($id);
-        return view('pages.bo.editLink', compact('show', 'logo', 'navLink'));
+        return view('pages.bo..home.editLink', compact('show', 'logo', 'navLink'));
     }
 
     public function updateHero(Request $request)
