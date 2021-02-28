@@ -11,74 +11,54 @@ use Illuminate\Http\Request;
 
 class HeroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function bo()
     {
         $about = About::all();
         $navLink = NavLink::all();
         $logo = Nav::all();
-        $hero = Hero::all();
+        $hero = Hero::first();
         $heroLink = HeroLink::all();
         return view('pages.bo.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $newEntry = new HeroLink;
+        $newEntry->link = $request->link;
+        $newEntry->save();
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hero  $hero
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hero $hero)
+    public function editLink($id)
     {
-        //
+        $navLink = NavLink::all();
+        $logo = Nav::all();
+        $show = HeroLink::find($id);
+        return view('pages.bo.editLink', compact('show', 'logo', 'navLink'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Hero  $hero
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Hero $hero)
+    public function updateHero(Request $request)
     {
-        //
+        $DBhero = Hero::first();
+        $DBhero->title = $request->title;
+        $DBhero->job = $request->job;
+        $DBhero->dataType = $request->dataType;
+        $DBhero->save();
+        return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hero  $hero
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Hero $hero)
+    public function updateLink($id, Request $request)
     {
-        //
+        $updateEntry = HeroLink::find($id);
+        $updateEntry->link = $request->link;
+        $updateEntry->save();
+        return redirect('/bo/home');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Hero  $hero
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Hero $hero)
+    public function destroyLink($id)
     {
-        //
+        $destroy = HeroLink::find($id);
+        $destroy->delete();
+        return redirect('/bo/home');
     }
 }

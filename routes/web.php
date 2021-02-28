@@ -22,4 +22,10 @@ Route::get('/', [Main::class,'index']);
 // BackOffice
 Route::get('/bo', [BackOfficeController::class,'index']);
 
+// BO - Hero
 Route::get('/bo/home', [HeroController::class,'bo']);
+Route::post('/createHeroLink', [HeroController::class,'store']);
+Route::get('/editHeroLink/{id}', [HeroController::class,'editLink']);
+Route::post('/updateHero', [HeroController::class,'updateHero']);
+Route::post('/updateHeroLink/{id}', [HeroController::class,'updateLink']);
+Route::get('/deleteHeroLink/{id}', [HeroController::class,'destroyLink']);

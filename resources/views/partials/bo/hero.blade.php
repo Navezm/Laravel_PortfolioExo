@@ -2,8 +2,8 @@
 <div id="hero" class="home">
     <div class="container">
         <div class="hero-content">
-            <h1>{{$hero[0]->title}} <span class="typed"></span></h1>
-            <p class="typed-items" data-typed-person="{{$hero[0]->dataType}}">{{$hero[0]->job}}</p>
+            <h1>{{$hero->title}} <span class="typed"></span></h1>
+            <p class="typed-items" data-typed-person="{{$hero->dataType}}">{{$hero->job}}</p>
 
             <ul class="list-unstyled list-social">
                 @foreach ($heroLink as $item)
