@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
+use App\Models\Nav;
+use App\Models\NavLink;
 use App\Models\Portfolio;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -14,7 +18,12 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Nav::all();
+        $navLink = NavLink::all();
+        $portfolio = Portfolio::all();
+        $genre = Genre::all();
+        $project = Project::all();
+        return view('pages.bo.portfolio.portfolio', compact('logo', 'navLink', 'portfolio', 'genre', 'project'));
     }
 
     /**

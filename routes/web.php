@@ -7,6 +7,7 @@ use App\Http\Controllers\Contact;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Main;
 use App\Http\Controllers\NavFooter;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,9 +44,10 @@ Route::post('/updateSkill/{id}', [AboutController::class,'updateSkill']);
 
 // BO - Contact
 Route::get('/bo/contact', [ContactController::class,'index']);
+Route::post('/updateInfo', [ContactController::class,'update']);
 
 // BO - NavFooter
-Route::get('bo/navfooter', [NavFooter::class,'index']);
+Route::get('/bo/navfooter', [NavFooter::class,'index']);
 Route::post('/updateFooter', [NavFooter::class,'updateFooter']);
 Route::post('/createFooterLink', [NavFooter::class,'store']);
 Route::get('/deleteFooterLink/{id}', [NavFooter::class,'destroy']);
@@ -55,3 +57,6 @@ Route::get('/deleteNavLink/{id}', [NavFooter::class,'destroyNav']);
 Route::get('/editNavLink/{id}', [NavFooter::class,'editNav']);
 Route::post('/updateNavLink/{id}', [NavFooter::class,'updateNav']);
 Route::post('/createNavLink', [NavFooter::class,'storeNav']);
+
+// BO - Portfolio
+Route::get('/bo/portfolio', [PortfolioController::class,'index']);

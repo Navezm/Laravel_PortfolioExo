@@ -9,7 +9,7 @@ use App\Models\Nav;
 use App\Models\NavLink;
 use Illuminate\Http\Request;
 
-class Contact extends Controller
+class ContactController extends Controller
 {
 
     public function index()
@@ -22,33 +22,15 @@ class Contact extends Controller
         return view('pages.bo.contact.contact', compact('logo', 'navLink', 'info', 'form', 'loading'));
     }
 
-    public function create()
+    public function update(Request $request)
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        $updateEntry = Info::first();
+        $updateEntry->title = $request->title;
+        $updateEntry->address1 = $request->address1;
+        $updateEntry->address2 = $request->address2;
+        $updateEntry->address3 = $request->address3;
+        $updateEntry->address4 = $request->address4;
+        $updateEntry->save();
+        return redirect()->back();
     }
 }
