@@ -8,12 +8,12 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Made By</label>
-            <input type="text" name="p2" class="form-control" value={{$footer[0]->p2}}>
+            <input type="text" name="p2" class="form-control" value="{{$footer[0]->p2}}">
             <small>The "/" character serve to split the data in this input.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Website</label>
-            <input type="text" name="link" class="form-control" value={{$footer[0]->link}}>
+            <input type="text" name="link" class="form-control" value="{{$footer[0]->link}}">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

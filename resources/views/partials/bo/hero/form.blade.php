@@ -8,11 +8,11 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Jobs</label>
-      <input type="text" name="job" class="form-control" value={{$hero->job}}>
+      <input type="text" name="job" class="form-control" value="{{$hero->job}}">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Data Type</label>
-      <input type="text" name="dataType" class="form-control" value={{$hero->dataType}}>
+      <input type="text" name="dataType" class="form-control" value="{{$hero->dataType}}">
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
   </form>

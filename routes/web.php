@@ -60,3 +60,12 @@ Route::post('/createNavLink', [NavFooter::class,'storeNav']);
 
 // BO - Portfolio
 Route::get('/bo/portfolio', [PortfolioController::class,'index']);
+Route::post('/updateTitlePortfolio', [PortfolioController::class,'updateTitle']);
+Route::get('/deleteGenrePortfolio/{id}', [PortfolioController::class,'destroyFilter']);
+Route::post('/createFilterPortfolio', [PortfolioController::class,'storeFilter']);
+Route::get('/editGenrePortfolio/{id}', [PortfolioController::class,'editGenre']);
+Route::post('/updateGenrePortfolio/{id}', [PortfolioController::class,'updateGenre']);
+Route::get('/editProjectPortfolio/{id}', [PortfolioController::class,'editProject']);
+Route::post('/updateProjectPortfolio/{id}', [PortfolioController::class,'updateProject']);
+Route::post('/createProjectPortfolio', [PortfolioController::class,'storeProject']);
+Route::get('/deleteProjectPortfolio/{id}', [PortfolioController::class,'destroyProject']);

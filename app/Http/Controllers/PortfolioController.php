@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $logo = Nav::all();
@@ -26,69 +21,79 @@ class PortfolioController extends Controller
         return view('pages.bo.portfolio.portfolio', compact('logo', 'navLink', 'portfolio', 'genre', 'project'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function storeFilter(Request $request)
     {
-        //
+        $newEntry = new Genre;
+        $newEntry->title = $request->title;
+        $newEntry->filter = $request->filter;
+        $newEntry->save();
+        return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function storeProject(Request $request)
     {
-        //
+        $newEntry = new Project;
+        $newEntry->title = $request->title;
+        $newEntry->src = $request->src;
+        $newEntry->p = $request->p;
+        $newEntry->save();
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Portfolio $portfolio)
+    public function editGenre($id)
     {
-        //
+        $logo = Nav::all();
+        $navLink = NavLink::all();
+        $show = Genre::find($id);
+        return view('pages.bo.portfolio.editGenre', compact('show', 'logo', 'navLink'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Portfolio $portfolio)
+    public function editProject($id)
     {
-        //
+        $logo = Nav::all();
+        $navLink = NavLink::all();
+        $show = Project::find($id);
+        return view('pages.bo.portfolio.editProject', compact('show', 'logo', 'navLink'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Portfolio $portfolio)
+    public function updateTitle(Request $request)
     {
-        //
+        $updateEntry = Portfolio::first();
+        $updateEntry->title = $request->title;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Portfolio $portfolio)
+    public function updateGenre($id, Request $request)
     {
-        //
+        $updateEntry = Genre::find($id);
+        $updateEntry->title = $request->title;
+        $updateEntry->filter = $request->filter;
+        $updateEntry->save();
+        return redirect('/bo/portfolio');
+    }
+
+    public function updateProject($id, Request $request)
+    {
+        $updateEntry = Project::find($id);
+        $updateEntry->title = $request->title;
+        $updateEntry->src = $request->src;
+        $updateEntry->p = $request->p;
+        $updateEntry->save();
+        return redirect('/bo/portfolio');
+    }
+
+    public function destroyFilter($id)
+    {
+        $destroy = Genre::find($id);
+        $destroy->delete();
+        return redirect()->back();
+    }
+
+    public function destroyProject($id)
+    {
+        $destroy = Project::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }

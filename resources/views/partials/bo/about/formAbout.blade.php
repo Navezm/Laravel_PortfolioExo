@@ -3,16 +3,16 @@
     <form action="/updateAbout" method="POST">
         @csrf
         <div class="form-group">
-        <label for="exampleInputEmail1">First Paragraph</label>
+        <label>First Paragraph</label>
         <input type="text" name="p1" class="form-control" value="{{$about->p1}}">
         </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">Second Paragraph</label>
-        <input type="text" name="p2" class="form-control" value={{$about->p2}}>
+        <label>Second Paragraph</label>
+        <input type="text" name="p2" class="form-control" value="{{$about->p2}}">
         </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">Src</label>
-        <input type="text" name="src" class="form-control" value={{$about->src}}>
+        <label>Src</label>
+        <input type="text" name="src" class="form-control" value="{{$about->src}}">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

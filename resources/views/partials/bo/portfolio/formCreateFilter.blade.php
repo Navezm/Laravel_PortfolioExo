@@ -1,0 +1,16 @@
+<div class="container my-5">
+    <h1 class="mb-3">Create Filter</h1>
+    <form action="/createFilterPortfolio" method="POST">
+        @csrf
+        <div class="form-group">
+          <label for="exampleInputEmail1">Filter name</label>
+          <input type="text" class="form-control" name="title">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Filter data</label>
+            <input type="text" class="form-control" name="filter" value=".filter-">
+            <small>Put the data filter you want after the pre-save value</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
