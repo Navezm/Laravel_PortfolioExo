@@ -11,11 +11,11 @@
 
         <ul class="nav-menu list-unstyled">
             @foreach ($navLink as $item)
-            @if ($loop->iteration == 1)
-                <li><a href="#hero" class="smoothScroll text-capitalize">{{$item->link}}</a></li>
-            @else
-                <li><a href="#{{$item->link}}" class="smoothScroll text-capitalize">{{$item->link}}</a></li>
-            @endif
+                @if ($loop->iteration == 1)
+                    <li><a href="#hero" class="smoothScroll text-capitalize">{{$item->link}}</a></li>
+                @else
+                    <li><a href="#{{$item->link}}" class="smoothScroll text-capitalize">{{$item->link}}</a></li>
+                @endif
             @endforeach
         </ul>
 

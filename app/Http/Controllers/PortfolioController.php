@@ -23,6 +23,11 @@ class PortfolioController extends Controller
 
     public function storeFilter(Request $request)
     {
+        $validated = $request->validateWithBag('storeFilter', [
+            'title' => 'required',
+            'filter' => 'required'
+        ]);
+
         $newEntry = new Genre;
         $newEntry->title = $request->title;
         $newEntry->filter = $request->filter;
@@ -32,6 +37,12 @@ class PortfolioController extends Controller
 
     public function storeProject(Request $request)
     {
+        $validated = $request->validateWithBag('storeProject', [
+            'title' => 'required',
+            'src' => 'required',
+            'p' => 'required'
+        ]);
+
         $newEntry = new Project;
         $newEntry->title = $request->title;
         $newEntry->src = $request->src;
@@ -58,6 +69,10 @@ class PortfolioController extends Controller
 
     public function updateTitle(Request $request)
     {
+        $validated = $request->validateWithBag('updateTitle', [
+            'title' => 'required'
+        ]);
+
         $updateEntry = Portfolio::first();
         $updateEntry->title = $request->title;
         $updateEntry->save();
@@ -66,6 +81,11 @@ class PortfolioController extends Controller
 
     public function updateGenre($id, Request $request)
     {
+        $validated = $request->validateWithBag('updateGenre', [
+            'title' => 'required',
+            'filter' => 'required'
+        ]);
+
         $updateEntry = Genre::find($id);
         $updateEntry->title = $request->title;
         $updateEntry->filter = $request->filter;
@@ -75,6 +95,12 @@ class PortfolioController extends Controller
 
     public function updateProject($id, Request $request)
     {
+        $validated = $request->validateWithBag('updateProject', [
+            'title' => 'required',
+            'src' => 'required',
+            'p' => 'required'
+        ]);
+
         $updateEntry = Project::find($id);
         $updateEntry->title = $request->title;
         $updateEntry->src = $request->src;

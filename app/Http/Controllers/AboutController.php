@@ -21,6 +21,12 @@ class AboutController extends Controller
 
     public function create(Request $request)
     {
+        $validated = $request->validateWithBag('createSkill', [
+            'span' => 'required',
+            'para' => 'required',
+            'icon' => 'required'
+        ]);
+
         $newEntry = new Skill;
         $newEntry->span = $request->span;
         $newEntry->para = $request->para;
@@ -39,6 +45,12 @@ class AboutController extends Controller
 
     public function updateSkill($id, Request $request)
     {
+        $validated = $request->validateWithBag('updateSkill', [
+            'span' => 'required',
+            'para' => 'required',
+            'icon' => 'required'
+        ]);
+
         $updateEntry = Skill::find($id);
         $updateEntry->icon = $request->icon;
         $updateEntry->para = $request->para;
@@ -49,6 +61,12 @@ class AboutController extends Controller
 
     public function updateAbout(Request $request)
     {
+        $validated = $request->validateWithBag('updateAbout', [
+            'src' => 'required',
+            'p1' => 'required',
+            'p2' => 'required'
+        ]);
+
         $updateEntry = About::first();
         $updateEntry->src = $request->src;
         $updateEntry->p1 = $request->p1;

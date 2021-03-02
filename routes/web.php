@@ -3,7 +3,6 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Contact;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Main;
 use App\Http\Controllers\NavFooter;
@@ -57,6 +56,7 @@ Route::get('/deleteNavLink/{id}', [NavFooter::class,'destroyNav']);
 Route::get('/editNavLink/{id}', [NavFooter::class,'editNav']);
 Route::post('/updateNavLink/{id}', [NavFooter::class,'updateNav']);
 Route::post('/createNavLink', [NavFooter::class,'storeNav']);
+Route::post('/updateLogo', [NavFooter::class,'updateLogo']);
 
 // BO - Portfolio
 Route::get('/bo/portfolio', [PortfolioController::class,'index']);

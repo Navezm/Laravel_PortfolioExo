@@ -23,6 +23,10 @@ class HeroController extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validateWithBag('createHeroLink', [
+            'link' => 'required'
+        ]);
+
         $newEntry = new HeroLink;
         $newEntry->link = $request->link;
         $newEntry->save();
@@ -39,6 +43,12 @@ class HeroController extends Controller
 
     public function updateHero(Request $request)
     {
+        $validation = $request->validateWithBag('updateHero', [
+            'title' => 'required',
+            'job' => 'required',
+            'dataType' => 'required'
+        ]);
+
         $DBhero = Hero::first();
         $DBhero->title = $request->title;
         $DBhero->job = $request->job;
@@ -49,6 +59,10 @@ class HeroController extends Controller
 
     public function updateLink($id, Request $request)
     {
+        $validation = $request->validateWithBag('updateHeroLink', [
+            'link' => 'required'
+        ]);
+
         $updateEntry = HeroLink::find($id);
         $updateEntry->link = $request->link;
         $updateEntry->save();

@@ -24,6 +24,14 @@ class ContactController extends Controller
 
     public function update(Request $request)
     {
+        $validation = $request->validateWithBag('updateContact', [
+            'title' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'address3' => 'required',
+            'address4' => 'required'
+        ]);
+
         $updateEntry = Info::first();
         $updateEntry->title = $request->title;
         $updateEntry->address1 = $request->address1;

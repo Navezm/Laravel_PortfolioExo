@@ -27,6 +27,10 @@ class NavFooter extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validateWithBag('createFooterLink', [
+            'icon' => 'required'
+        ]);
+
         $newEntry = new FooterLink;
         $newEntry->icon = $request->icon;
         $newEntry->save();
@@ -35,6 +39,10 @@ class NavFooter extends Controller
 
     public function storeNav(Request $request)
     {
+        $validation = $request->validateWithBag('createNav', [
+            'link' => 'required'
+        ]);
+
         $newEntry = new NavLink;
         $newEntry->link = $request->link;
         $newEntry->save();
@@ -49,8 +57,24 @@ class NavFooter extends Controller
         return view('pages.bo.navFooter.edit', compact('show', 'navLink', 'logo'));
     }
 
+    public function updateLogo(Request $request)
+    {
+        $validation = $request->validateWithBag('updateLogo', [
+            'logo' => 'required'
+        ]);
+
+        $updateEntry = Nav::first();
+        $updateEntry->logo = $request->logo;
+        $updateEntry->save();
+        return redirect()->back();
+    }
+
     public function updateFooterLink($id, Request $request)
     {
+        $validation = $request->validateWithBag('updateFooterLink', [
+            'icon' => 'required'
+        ]);
+
         $updateEntry = FooterLink::find($id);
         $updateEntry->icon = $request->icon;
         $updateEntry->save();
@@ -59,6 +83,12 @@ class NavFooter extends Controller
 
     public function updateFooter(Request $request)
     {
+        $validation = $request->validateWithBag('updateFooter', [
+            'p1' => 'required',
+            'p2' => 'required',
+            'link' => 'required'
+        ]);
+
         $updateEntry = Footer::first();
         $updateEntry->p1 = $request->p1;
         $updateEntry->p2 = $request->p2;
@@ -77,6 +107,10 @@ class NavFooter extends Controller
 
     public function updateNav($id, Request $request)
     {
+        $validation = $request->validateWithBag('updateNav', [
+            'link' => 'required'
+        ]);
+
         $updateEntry = NavLink::find($id);
         $updateEntry->link = $request->link;
         $updateEntry->save();
