@@ -63,7 +63,6 @@ class AboutController extends Controller
     public function updateAbout(Request $request)
     {
         $validated = $request->validateWithBag('updateAbout', [
-            'src' => 'required',
             'p1' => 'required',
             'p2' => 'required'
         ]);

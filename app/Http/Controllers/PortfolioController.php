@@ -40,7 +40,6 @@ class PortfolioController extends Controller
     {
         $validated = $request->validateWithBag('storeProject', [
             'title' => 'required',
-            'src' => 'required',
             'p' => 'required'
         ]);
 
@@ -99,7 +98,6 @@ class PortfolioController extends Controller
     {
         $validated = $request->validateWithBag('updateProject', [
             'title' => 'required',
-            'src' => 'required',
             'p' => 'required'
         ]);
 
