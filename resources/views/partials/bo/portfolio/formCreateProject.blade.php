@@ -13,19 +13,19 @@
      @endif
      {{-- Div Error --}}
 
-    <form action="/createProjectPortfolio" method="POST">
+    <form action="/createProjectPortfolio" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-          <label for="exampleInputEmail1">Project Title</label>
+          <label>Project Title</label>
           <input type="text" class="form-control" name="title" value="{{old('title')}}">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Description</label>
+            <label>Description</label>
             <input type="text" class="form-control" name="p" value="{{old('p')}}">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Image Link</label>
-            <input type="text" class="form-control" name="src" value="{{old('src')}}">
+            <label>Image</label>
+            <input type="file" class="form-control" name="src">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

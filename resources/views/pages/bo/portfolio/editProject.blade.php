@@ -16,7 +16,7 @@
     @endif
     {{-- Div Error --}}
 
-    <form action="/updateProjectPortfolio/{{$show->id}}" method="POST">
+    <form action="/updateProjectPortfolio/{{$show->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="exampleInputEmail1">Project Title</label>
@@ -27,8 +27,8 @@
             <input type="text" class="form-control" name="p" value="{{old('p') ? old('p') : $show->p}}">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Image Link</label>
-            <input type="text" class="form-control" name="src" value="{{old('src') ? old('src') : $show->src}}">
+            <label for="exampleInputEmail1">Image</label>
+            <input type="file" class="form-control" name="src">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

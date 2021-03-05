@@ -68,4 +68,4 @@ Route::post('/updateGenrePortfolio/{id}', [PortfolioController::class,'updateGen
 Route::get('/editProjectPortfolio/{id}', [PortfolioController::class,'editProject']);
 Route::post('/updateProjectPortfolio/{id}', [PortfolioController::class,'updateProject']);
 Route::post('/createProjectPortfolio', [PortfolioController::class,'storeProject']);
-Route::get('/deleteProjectPortfolio/{id}', [PortfolioController::class,'destroyProject']);
+Route::post('/deleteProjectPortfolio/{id}', [PortfolioController::class,'destroyProject']);

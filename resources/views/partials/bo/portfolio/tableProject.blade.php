@@ -14,7 +14,10 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->title}}</td>
             <td>
-                <a class="btn btn-danger" href="/deleteProjectPortfolio/{{$item->id}}">Delete</a>
+              <form action="/deleteProjectPortfolio/{{$item->id}}" method="POST">
+                @csrf
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
             </td>
             <td>
                 <a class="btn btn-success" href="/editProjectPortfolio/{{$item->id}}">Edit</a>

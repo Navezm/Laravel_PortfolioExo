@@ -8,6 +8,7 @@ use App\Models\NavLink;
 use App\Models\Portfolio;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -44,8 +45,9 @@ class PortfolioController extends Controller
         ]);
 
         $newEntry = new Project;
+        Storage::put('public/img/', $request->file('src'));
         $newEntry->title = $request->title;
-        $newEntry->src = $request->src;
+        $newEntry->src = $request->file('src')->hashName();
         $newEntry->p = $request->p;
         $newEntry->save();
         return redirect()->back();
@@ -102,8 +104,10 @@ class PortfolioController extends Controller
         ]);
 
         $updateEntry = Project::find($id);
+        Storage::delete('public/img/'.$updateEntry->src);
+        Storage::put('public/img/', $request->file('src'));
         $updateEntry->title = $request->title;
-        $updateEntry->src = $request->src;
+        $updateEntry->src = $request->file('src')->hashName();
         $updateEntry->p = $request->p;
         $updateEntry->save();
         return redirect('/bo/portfolio');
@@ -119,6 +123,7 @@ class PortfolioController extends Controller
     public function destroyProject($id)
     {
         $destroy = Project::find($id);
+        Storage::delete('public/img/'.$destroy->src);
         $destroy->delete();
         return redirect()->back();
     }

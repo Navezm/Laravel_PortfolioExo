@@ -6,7 +6,7 @@
         <div class="col-lg-4 ">
           <div class="div-img-bg">
             <div class="about-img">
-              <img src="{{str_contains('img', $about[0]->src) ? asset($about[0]->src) : asset('storage/img/'.$about[0]->src)}}" class="img-responsive" alt="me">
+              <img src="{{str_contains($about[0]->src, 'img') ? asset($about[0]->src) : asset('storage/img/'.$about[0]->src)}}" class="img-responsive" alt="me">
             </div>
           </div>
         </div>
