@@ -21,11 +21,6 @@ use Illuminate\Http\Request;
 
 class BackOfficeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $navLink = NavLink::all();

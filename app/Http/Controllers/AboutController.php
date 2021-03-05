@@ -7,6 +7,7 @@ use App\Models\Nav;
 use App\Models\NavLink;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -68,11 +69,18 @@ class AboutController extends Controller
         ]);
 
         $updateEntry = About::first();
-        $updateEntry->src = $request->src;
+        Storage::delete('public/img/'.$updateEntry->src);
+        Storage::put('public/img/', $request->file('src'));
+        $updateEntry->src = $request->file('src')->hashName();
         $updateEntry->p1 = $request->p1;
         $updateEntry->p2 = $request->p2;
         $updateEntry->save();
         return redirect()->back();
+    }
+
+    public function download($id)
+    {
+
     }
 
     public function destroy($id)

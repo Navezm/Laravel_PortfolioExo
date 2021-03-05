@@ -13,7 +13,7 @@
     @endif
     {{-- Div Error --}}
 
-    <form action="/updateAbout" method="POST">
+    <form action="/updateAbout" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label>First Paragraph</label>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label>Src</label>
-            <input type="text" name="src" class="form-control" value="{{old('src') ? old('src') : $about->src}}">
+            <input type="file" name="src" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

@@ -18,7 +18,7 @@ class HeroController extends Controller
         $logo = Nav::all();
         $hero = Hero::first();
         $heroLink = HeroLink::all();
-        return view('pages.bo..home.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
+        return view('pages.bo.home.home', compact('about', 'navLink', 'logo', 'hero', 'heroLink'));
     }
 
     public function store(Request $request)
