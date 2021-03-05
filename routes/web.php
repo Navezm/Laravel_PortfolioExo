@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Main::class,'index']);
+Route::get('/', [Main::class,'index'])->name('home');
 
 // BackOffice
 Route::get('/bo', [BackOfficeController::class,'index']);
