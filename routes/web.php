@@ -40,6 +40,7 @@ Route::post('/createSkill', [AboutController::class,'create']);
 Route::get('/deleteSkill/{id}', [AboutController::class,'destroy']);
 Route::get('/editSkill/{id}', [AboutController::class,'edit']);
 Route::post('/updateSkill/{id}', [AboutController::class,'updateSkill']);
+Route::get('/downloadAbout', [AboutController::class,'download']);
 
 // BO - Contact
 Route::get('/bo/contact', [ContactController::class,'index']);
@@ -69,3 +70,4 @@ Route::get('/editProjectPortfolio/{id}', [PortfolioController::class,'editProjec
 Route::post('/updateProjectPortfolio/{id}', [PortfolioController::class,'updateProject']);
 Route::post('/createProjectPortfolio', [PortfolioController::class,'storeProject']);
 Route::post('/deleteProjectPortfolio/{id}', [PortfolioController::class,'destroyProject']);
+Route::get('/downloadProject/{id}', [PortfolioController::class,'download']);

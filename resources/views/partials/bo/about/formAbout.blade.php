@@ -27,6 +27,9 @@
             <label>Src</label>
             <input type="file" name="src" class="form-control">
         </div>
+        <div class="form-group">
+            <a class="btn btn-warning" href="/downloadAbout">Download Image</a>
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

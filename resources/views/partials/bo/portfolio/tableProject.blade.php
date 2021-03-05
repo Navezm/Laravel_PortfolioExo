@@ -6,6 +6,7 @@
         <th scope="col">Project</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +21,11 @@
               </form>
             </td>
             <td>
-                <a class="btn btn-success" href="/editProjectPortfolio/{{$item->id}}">Edit</a>
+              <a class="btn btn-success" href="/editProjectPortfolio/{{$item->id}}">Edit</a>
             </td>
+            <td>
+              <a class="btn btn-warning" href="/downloadProject/{{$item->id}}">Download Img</a>
+          </td>
         </tr>
       @endforeach
     </tbody>

@@ -78,9 +78,10 @@ class AboutController extends Controller
         return redirect()->back();
     }
 
-    public function download($id)
+    public function download()
     {
-
+        $img = About::first();
+        return Storage::download('public/img/'.$img->src);
     }
 
     public function destroy($id)
