@@ -10,10 +10,9 @@
                 @foreach ($navLink as $item)
                     <li class="mx-2"><a href="/bo/{{$item->link}}" class="smoothScroll text-capitalize">{{$item->link}}</a></li>
                 @endforeach
-                <li class="mx-2"><a href="/bo/navfooter" class="smoothScroll text-capitalize">NavFooter</a></li>
+                <li class="mx-2"><a href="{{route('navFooter')}}" class="smoothScroll text-capitalize">NavFooter</a></li>
             </ul>
 
         </div>
     </div>
 </div>
-

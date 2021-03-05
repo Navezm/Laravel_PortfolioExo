@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Main::class,'index']);
+Route::get('/', [Main::class,'index'])->name('home');
 
 // BackOffice
-Route::get('/bo', [BackOfficeController::class,'index']);
+Route::get('/bo', [BackOfficeController::class,'index'])->name('bo');
 
 // BO - Hero
 Route::get('/bo/home', [HeroController::class,'bo']);
@@ -47,7 +47,7 @@ Route::get('/bo/contact', [ContactController::class,'index']);
 Route::post('/updateInfo', [ContactController::class,'update']);
 
 // BO - NavFooter
-Route::get('/bo/navfooter', [NavFooter::class,'index']);
+Route::get('/bo/navfooter', [NavFooter::class,'index'])->name('navFooter');
 Route::post('/updateFooter', [NavFooter::class,'updateFooter']);
 Route::post('/createFooterLink', [NavFooter::class,'store']);
 Route::get('/deleteFooterLink/{id}', [NavFooter::class,'destroy']);
